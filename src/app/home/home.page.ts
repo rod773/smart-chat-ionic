@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Message } from './../models/message.mpdel';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,17 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  messages: Message[] = [
+    {
+      sender: 'me',
+      comment: 'Hola Como Estas?',
+    },
+    {
+      sender: 'bot',
+      comment: 'Estoy Bien y Tú Como Estas?',
+    },
+  ];
+
   form = new FormGroup({
     promt: new FormControl(''),
   });
