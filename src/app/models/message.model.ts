@@ -1,4 +1,4 @@
 export interface Message {
   sender: string;
-  comment: string;
+  content: string;
 }

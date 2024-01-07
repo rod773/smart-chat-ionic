@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Message } from './../models/message.mpdel';
+import { Message } from '../models/message.model';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,11 @@ export class HomePage {
   messages: Message[] = [
     {
       sender: 'me',
-      comment: 'Hola Como Estas?',
+      content: 'Hola Como Estas?',
     },
     {
       sender: 'bot',
-      comment: 'Estoy Bien y Tú Como Estas?',
+      content: 'Estoy Bien y Tú Como Estas?',
     },
   ];
 
