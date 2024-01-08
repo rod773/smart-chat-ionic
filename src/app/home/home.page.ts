@@ -49,5 +49,26 @@ export class HomePage {
     this.messages.push(botMsg);
 
     this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false;
+      this.typeText(
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, eaque!'
+      );
+    }, 2000);
+  }
+
+  typeText(text: string) {
+    let textIndex = 0;
+    let messagesLastIndex = this.messages.length - 1;
+
+    let interval = setInterval(() => {
+      if (textIndex < text.length) {
+        this.messages[messagesLastIndex].content += text.charAt(textIndex);
+        textIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 15);
   }
 }

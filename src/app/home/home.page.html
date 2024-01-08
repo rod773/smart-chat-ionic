@@ -12,7 +12,7 @@
     <ion-badge slot="start" [color]="m.sender === 'me'?'success':'tertiary'" mode="ios">
       <ion-icon class="chat-icon" [src]="m.sender === 'me'?'assets/user.svg':'assets/bot.svg'"></ion-icon>>
     </ion-badge>
-    <ion-label>{{m.content}}</ion-label>
+    <ion-label class="ion-content-wrap">{{m.content}}</ion-label>
     <ion-spinner *ngIf="loading && (i+1===messages.length)" color="primary" name="dots"></ion-spinner>
   </ion-item>
 
