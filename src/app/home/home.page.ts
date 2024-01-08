@@ -50,11 +50,15 @@ export class HomePage {
 
     this.loading = true;
 
+    this.form.reset();
+    this.form.disable();
+
     setTimeout(() => {
       this.loading = false;
       this.typeText(
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, eaque!'
       );
+      this.form.enable();
     }, 2000);
   }
 
