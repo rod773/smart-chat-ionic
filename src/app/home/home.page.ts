@@ -64,7 +64,7 @@ export class HomePage {
       });
 
       this.form.enable();
-    }, 2000);
+    }, 599);
   }
 
   typeText(text: string) {
