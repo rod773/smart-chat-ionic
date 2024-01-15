@@ -9,16 +9,7 @@ import { HfService } from '../services/hf.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  messages: Message[] = [
-    {
-      sender: 'me',
-      content: 'Hola Como Estas?',
-    },
-    {
-      sender: 'bot',
-      content: 'Estoy Bien y Tú Como Estas?',
-    },
-  ];
+  messages: Message[] = [];
 
   form = new FormGroup({
     promt: new FormControl(''),
