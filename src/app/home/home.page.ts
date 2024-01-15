@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Message } from '../models/message.model';
+import { OpenaiService } from '../services/openai.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomePage {
     promt: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private openAI: OpenaiService) {}
 
   loading: boolean = false;
 
@@ -48,10 +49,20 @@ export class HomePage {
 
     this.messages.push(botMsg);
 
-    this.loading = true;
-
     this.form.reset();
     this.form.disable();
+
+    this.loading = true;
+
+    this.openAI.sendQuestion(promt).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.loading = false;
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
 
     setTimeout(() => {
       this.loading = false;
