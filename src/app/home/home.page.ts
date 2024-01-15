@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Message } from '../models/message.model';
-import { OpenaiService } from '../services/openai.service';
+import { HfService } from '../services/hf.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +24,7 @@ export class HomePage {
     promt: new FormControl(''),
   });
 
-  constructor(private openAI: OpenaiService) {}
+  constructor(private hf: HfService) {}
 
   loading: boolean = false;
 
@@ -54,21 +54,15 @@ export class HomePage {
 
     this.loading = true;
 
-    this.openAI.sendQuestion(promt).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.loading = false;
-      },
-      error: (error: any) => {
-        console.log(error);
-      },
-    });
-
     setTimeout(() => {
       this.loading = false;
-      this.typeText(
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, eaque!'
-      );
+
+      this.hf.sendQuestion(promt).then((response) => {
+        const text = response;
+        console.log(text);
+        this.typeText(text);
+      });
+
       this.form.enable();
     }, 2000);
   }

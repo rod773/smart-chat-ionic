@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:3000/',
+  HF_TOKEN: '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',
 };
 
 /*http://localhost:3000/
