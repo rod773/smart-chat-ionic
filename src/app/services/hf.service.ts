@@ -14,7 +14,7 @@ export class HfService {
 
   async sendQuestion(promt: string) {
     const gpt2 = this.inference.endpoint(
-      'https://api-inference.huggingface.co/models/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5'
+      'https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta'
     );
 
     const { generated_text } = await gpt2.textGeneration({
